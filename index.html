@@ -5,56 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unidad Educativa Séneca - Manta</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/jpeg" href="assets/imagenes/logo/logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
-    
-
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <button id="btn-back-to-top" title="Ir al inicio" onclick="scrollToTop()">▲</button>
 
-<header>
-    <div class="container nav-container">
-        <div class="logo-area">
-            <div class="logo-box">
-                <img src="assets/imagenes/logo/logo.jpg" alt="Logo U.E. Séneca">
+<header style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background-color: rgba(13, 27, 42, 0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15); border-bottom: 2px solid #3a86ff; font-family: 'Plus Jakarta Sans', sans-serif;">
+    <div class="container nav-container" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; max-width: 1200px; margin: 0 auto;">
+        
+        <div class="logo-area" style="display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="window.location.href='#inicio'">
+            <div class="logo-box" style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 2px solid #3a86ff; box-shadow: 0 0 10px rgba(58, 134, 255, 0.3); background: #ffffff; display: flex; align-items: center; justify-content: center;">
+                <img src="assets/imagenes/logo/logo.jpg" alt="Logo U.E. Séneca" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <span class="logo-text">U.E. <strong>Séneca</strong></span>
+            <span class="logo-text" style="color: #ffffff; font-family: 'Outfit', sans-serif; font-size: 1.3rem; letter-spacing: 0.5px;">
+                U.E. <strong style="color: #3a86ff; font-weight: 800;">Séneca</strong>
+            </span>
         </div>
-        <nav>
-            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        
+        <nav style="display: flex; align-items: center;">
+            <button class="menu-toggle" aria-label="Abrir menú" style="display: none; background: none; border: none; color: #ffffff; font-size: 1.8rem; cursor: pointer;">☰</button>
             
-            <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#oferta">Oferta</a></li>
-                <li><a href="#plantel">Plantel Docente</a></li>
-                <li><a href="#vida">Vida Estudiantil</a></li>
-                <li><a href="#galeria">Noticias y Galería</a></li>
-                <li><a href="#admisiones">Admisiones</a></li>
-                <li><a href="#privacidad">Legal</a></li>
+            <ul class="nav-menu" style="list-style: none; display: flex; align-items: center; gap: 20px; margin: 0; padding: 0;">
+                <li><a href="#inicio" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Inicio</a></li>
+                <li><a href="#nosotros" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Nosotros</a></li>
+                <li><a href="#oferta" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Oferta Académica</a></li>
+                <li><a href="#plantel" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Plantel Docente</a></li>
+                <li><a href="#galeria" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Galería</a></li>
+                <li><a href="#privacidad" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; opacity: 0.8; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Legal</a></li>
+                
+                <li style="margin-left: 10px;">
+                    <a href="#admisiones" style="background-color: #3a86ff; color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 600; padding: 10px 20px; border-radius: 8px; box-shadow: 0 4px 14px rgba(58, 134, 255, 0.4); transition: all 0.2s ease-in-out; display: inline-block;" 
+                       onmouseover="this.style.backgroundColor='#2563eb'; this.style.transform='translateY(-1px)';" 
+                       onmouseout="this.style.backgroundColor='#3a86ff'; this.style.transform='translateY(0)';">
+                        Admisiones 2026
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
 </header>
 
-    <section class="hero" id="inicio">
-        <div class="container hero-grid">
-            <div class="hero-text">
-                <h1>Educamos con amor y compromiso desde 1997</h1>
+    <section class="hero-fullscreen" id="inicio">
+        <div class="hero-video-bg">
+            <video autoplay loop muted playsinline>
+                <source src="SENECAA.mp4" type="video/mp4" />
+                Tu navegador no soporta el formato de video.
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="container hero-content-overlay">
+            <div class="hero-text-center">
+                <span class="hero-tagline">Desde 1997 • Por siempre La Moderna</span>
+                <h1>Educamos con amor y compromiso hacia la excelencia</h1>
                 <p>Formamos estudiantes íntegros y preparados para el futuro. Contamos con una sólida formación basada en las ciencias, modernos laboratorios, docentes altamente capacitados y amplias áreas deportivas.</p>
-                <div class="hero-btns">
-                    <a href="https://wa.me/593958727023" class="btn btn-primary" target="_blank">Agendar Visita (WhatsApp)</a>
-                    <a href="#admisiones" class="btn btn-secondary">Requisitos</a>
+                <div class="hero-btns-center">
+                    <a href="https://wa.me/593958727023" class="btn btn-hero-primary" target="_blank">Agendar Visita (WhatsApp)</a>
+                    <a href="#admisiones" class="btn btn-hero-secondary">Requisitos</a>
                 </div>
             </div>
-            <div class="hero-video-placeholder">
-                <video autoplay loop muted controls>
-                    <source src="SENECAA.mp4" type="video/mp4" />
-                    Tu navegador no soporta el formato de video.
-                </video>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
             </div>
         </div>
     </section>
@@ -87,7 +105,7 @@
                 <div class="infra-item">
                     <div class="card-carousel">
                         <div class="card-carousel-track">
-                            <div class="card-slide" style="background-image: url('assets/imagenes/infraestructura/aula.jpg');"></div>
+                            <div class="card-slide" style="background-image: url('assets/imagenes/computo/DSC08057.JPG');"></div>
                         </div>
                     </div>
                     <h4>Aulas Modernas</h4>
@@ -108,8 +126,8 @@
                 <div class="infra-item">
                     <div class="card-carousel">
                         <div class="card-carousel-track">
-                            <div class="card-slide" style="background-image: url('assets/imagenes/infraestructura/cancha1.jpg');"></div>
-                            <div class="card-slide" style="background-image: url('assets/imagenes/infraestructura/cancha2.jpg');"></div>
+                            <div class="card-slide" style="background-image: url('assets/imagenes/destacadas/DJI_20260522212604_0150_D.JPG');"></div>
+                            <div class="card-slide" style="background-image: url('assets/imagenes/destacadas/DJI_20260522212032_0139_D.JPG');"></div>
                         </div>
                     </div>
                     <h4>Áreas Deportivas</h4>
@@ -118,32 +136,56 @@
                 <div class="infra-item">
                     <div class="card-carousel">
                         <div class="card-carousel-track">
-                            <div class="card-slide" style="background-image: url('assets/imagenes/infraestructura/recreo.jpg');"></div>
+                            <div class="card-slide" style="background-image: url('assets/imagenes/computo/DSC08039.JPG');"></div>
                         </div>
                     </div>
-                    <h4>Espacios Recreativos</h4>
+                    <h4>Centro de cómputo</h4>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="section-padding" id="oferta">
-        <div class="container">
-            <div class="section-title">
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="section-title" style="width: 100%; text-align: center;">
                 <h2>Oferta Académica</h2>
             </div>
-            <div class="oferta-cards">
-                <div class="oferta-card">
-                    <h3>Preescolar</h3>
-                    <p>Entorno cálido centrado en la estimulación temprana y valores iniciales.</p>
+            
+            <div class="infra-grid" style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%; gap: 30px;"> 
+                <div class="infra-item" style="flex: 1; min-width: 280px; max-width: 350px; margin: 0;">
+                    <div class="card-carousel">
+                        <div class="card-carousel-track">
+                            <div class="card-slide" style="background-image: url('assets/imagenes/destacadas/DSC07979.JPG');"></div>
+                        </div>
+                    </div>
+                    <div style="padding: 15px; text-align: center;">
+                        <h4 style="margin-bottom: 10px;">Preescolar</h4>
+                        <p style="font-size: 0.95rem; color: #4a5568;">Entorno cálido centrado en la estimulación temprana y valores iniciales.</p>
+                    </div>
                 </div>
-                <div class="oferta-card">
-                    <h3>Primaria</h3>
-                    <p>Desarrollo de competencias lógicas, científicas y habilidades interpersonales.</p>
+
+                <div class="infra-item" style="flex: 1; min-width: 280px; max-width: 350px; margin: 0;">
+                    <div class="card-carousel">
+                        <div class="card-carousel-track">
+                            <div class="card-slide" style="background-image: url('assets/imagenes/destacadas/DSC08091.JPG');"></div>
+                        </div>
+                    </div>
+                    <div style="padding: 15px; text-align: center;">
+                        <h4 style="margin-bottom: 10px;">Primaria</h4>
+                        <p style="font-size: 0.95rem; color: #4a5568;">Desarrollo de competencias lógicas, científicas y habilidades interpersonales.</p>
+                    </div>
                 </div>
-                <div class="oferta-card">
-                    <h3>Secundaria</h3>
-                    <p>Preparación rigurosa enfocada hacia la excelencia académica y la universidad.</p>
+
+                <div class="infra-item" style="flex: 1; min-width: 280px; max-width: 350px; margin: 0;">
+                    <div class="card-carousel">
+                        <div class="card-carousel-track">
+                            <div class="card-slide" style="background-image: url('assets/imagenes/destacadas/DSC08087.JPG');"></div>
+                        </div>
+                    </div>
+                    <div style="padding: 15px; text-align: center;">
+                        <h4 style="margin-bottom: 10px;">Secundaria</h4>
+                        <p style="font-size: 0.95rem; color: #4a5568;">Preparación rigurosa enfocada hacia la excelencia académica y la universidad.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -198,128 +240,100 @@
         </div>
     </section>
 
-    <section class="section-padding vida-estudiantil" id="vida">
-        <div class="container">
-            <div class="section-title">
-                <h2>Vida Estudiantil</h2>
+ <section class="section-padding" id="galeria">
+    <div class="container">
+        <div class="section-title">
+            <h2>Noticias y Galería</h2>
+        </div>
+        <p style="text-align: center; max-width: 600px; margin: -40px auto 40px auto; color: #4a5568; font-size: 1.05rem;">
+            Manténgase al día con las últimas novedades, eventos solemnes y reconocimientos de nuestra institución.
+        </p>
+        
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC08015.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
             </div>
-            
-            <div class="vida-grid">
-                <div class="vida-card">
-                    <div class="card-carousel">
-                        <div class="card-carousel-track">
-                            <div class="card-slide" style="background-image: url('assets/imagenes/vida/deportes1.jpg');"></div>
-                            <div class="card-slide" style="background-image: url('assets/imagenes/vida/deportes2.jpg');"></div>
-                        </div>
-                    </div>
-                    <div class="vida-content">
-                        <h3>Deportes</h3>
-                        <p>Fomentamos el trabajo en equipo, la disciplina y la salud física a través de nuestras diversas disciplinas deportivas y campeonatos internos.</p>
-                    </div>
-                </div>
-
-                <div class="vida-card">
-                    <div class="card-carousel">
-                        <div class="card-carousel-track">
-                            <div class="card-slide" style="background-image: url('assets/imagenes/vida/banda1.jpg');"></div>
-                        </div>
-                    </div>
-                    <div class="vida-content">
-                        <h3>Banda de Paz</h3>
-                        <p>Orgullo e identidad institucional. Espacio donde se cultiva la coordinación musical, el civismo y la gallardía en desfiles solemnes.</p>
-                    </div>
-                </div>
-
-                <div class="vida-card">
-                    <div class="card-carousel">
-                        <div class="card-carousel-track">
-                            <div class="card-slide" style="background-image: url('assets/imagenes/vida/olimpiadas1.jpg');"></div>
-                            <div class="card-slide" style="background-image: url('assets/imagenes/vida/olimpiadas2.jpg');"></div>
-                            <div class="card-slide" style="background-image: url('assets/imagenes/vida/olimpiadas3.jpg');"></div>
-                        </div>
-                    </div>
-                    <div class="vida-content">
-                        <h3>Olimpiadas</h3>
-                        <p>Tradición anual que une a nuestra comunidad en jornadas de sana competencia, creatividad, destreza física y confraternidad.</p>
-                    </div>
-                </div>
+            <div class="galeria-item">
+                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC08071.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/laboratorio/DSC07997.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC07962.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DJI_20260522212604_0150_D.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
+            </div>
+            <div class="galeria-item">
+                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC05260.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section-padding" id="galeria">
-        <div class="container">
-            <div class="section-title">
-                <h2>Noticias y Galería</h2>
-            </div>
-            <p style="text-align: center; max-width: 600px; margin: -40px auto 40px auto; color: #4a5568; font-size: 1.05rem;">Manténgase al día con las últimas novedades, eventos solemnes y reconocimientos de nuestra institución.</p>
+<section class="section-padding admisiones-section" id="admisiones" style="background-color: #f8fafc; padding: 60px 0;">
+    <div class="container contacto-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        
+        <div style="background: #ffffff; padding: 35px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;">
+            <h3 style="color: #0d1b2a; font-family: 'Outfit', sans-serif; font-size: 1.6rem; margin-top: 0; margin-bottom: 15px; border-bottom: 3px solid #3a86ff; padding-bottom: 8px; display: inline-block;">
+                Proceso de Admisión
+            </h3>
+            <p style="color: #4a5568; font-size: 1rem; margin-bottom: 20px;">Sigue los pasos para formar parte de nuestra comunidad educativa:</p>
             
-            <div class="galeria-grid">
-                <div class="galeria-item">
-                    <span class="galeria-tag">Evento</span>
-                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/galeria/evento1.jpg');">
-                        <span>Ceremonia de Incorporación 2026</span>
-                    </div>
-                </div>
-                <div class="galeria-item">
-                    <span class="galeria-tag">Reconocimiento</span>
-                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/galeria/reconocimiento1.jpg');">
-                        <span>Primer Lugar en Intercolegial de Ciencias</span>
-                    </div>
-                </div>
-                <div class="galeria-item">
-                    <span class="galeria-tag">Fotografías</span>
-                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/laboratorio/DSC07997.JPG');">
-                        <span>Nuestros estudiantes en laboratorios</span>
-                    </div>
-                </div>
-                <div class="galeria-item">
-                    <span class="galeria-tag">Videos</span>
-                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/galeria/video-mock.jpg');">
-                        <span>Recorrido virtual por el plantel educativo</span>
-                    </div>
-                </div>
-                <div class="galeria-item">
-                    <span class="galeria-tag">Noticias</span>
-                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/galeria/noticia1.jpg');">
-                        <span>Inicio de capacitaciones docentes 2026</span>
-                    </div>
-                </div>
-                <div class="galeria-item">
-                    <span class="galeria-tag">Fotografías</span>
-                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/galeria/banda_paz.jpg');">
-                        <span>Presentación oficial de la Banda de Paz</span>
-                    </div>
-                </div>
-            </div>
+            <ul class="info-list" style="list-style: none; padding: 0; margin: 0 0 25px 0; display: flex; flex-direction: column; gap: 12px;">
+                <li style="padding: 10px 14px; background: #f1f5f9; border-radius: 8px; transition: transform 0.2s;">
+                    <span><strong>Paso 1:</strong> Revisa los <a href="assets/documentos/web/ADMISIONES (REQUISITOS).pdf" target="_blank" style="color: #3a86ff; font-weight: 600; text-decoration: none;">Requisitos de Admisión (PDF) →</a></span>
+                </li>
+                <li style="padding: 10px 14px; background: #f1f5f9; border-radius: 8px; transition: transform 0.2s;">
+                    <span><strong>Paso 2:</strong> Descarga y llena el <a href="assets/documentos/web/FORMULARIO DE ADMISIÓN.pdf" target="_blank" style="color: #3a86ff; font-weight: 600; text-decoration: none;">Formulario de Inscripción (PDF) →</a></span>
+                </li>
+                <li style="padding: 10px 14px; background: #f1f5f9; border-radius: 8px; transition: transform 0.2s;">
+                    <span><strong>Paso 3:</strong> Conozca el plan de estudios en el <a href="assets/documentos/web/LISTADO DE MATERIAS.pdf" target="_blank" style="color: #3a86ff; font-weight: 600; text-decoration: none;">Listado de Materias (PDF) →</a></span>
+                </li>
+            </ul>
+            
+            <a href="https://wa.me/593958727023" class="btn btn-primary" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background-color: #25d366; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);">
+                <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Contactar por WhatsApp
+            </a>
         </div>
-    </section>
-
-    <section class="section-padding admisiones-section" id="admisiones">
-        <div class="container contacto-grid">
+        
+        <div style="background: #ffffff; padding: 35px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-                <h3>Proceso de Admisión</h3>
-                <br>
-                <p>Sigue los pasos para formar parte de nuestra comunidad educativa:</p>
-                <ul class="info-list">
-                    <li>🔹 <span><strong>Paso 1:</strong> Revisa los <a href="ADMISIONES (REQUISITOS).pdf" target="_blank" style="color: var(--denim); font-weight: 600;">Requisitos de Admisión (PDF)</a>.</span></li>
-                    <li>🔹 <span><strong>Paso 2:</strong> Descarga y llena el <a href="FORMULARIO DE ADMISIÓN.pdf" target="_blank" style="color: var(--denim); font-weight: 600;">Formulario de Inscripción (PDF)</a>.</span></li>
-                    <li>🔹 <span><strong>Paso 3:</strong> Conozca el plan de estudios en el <a href="LISTADO DE MATERIAS.pdf" target="_blank" style="color: var(--denim); font-weight: 600;">Listado de Materias (PDF)</a>.</span></li>
-                </ul>
-                <br>
-                <a href="https://wa.me/593958727023" class="btn btn-primary" target="_blank">Contactar por WhatsApp</a>
-            </div>
-            
-            <div>
-                <h3>Información de Contacto</h3>
-                <ul class="info-list">
-                    <li>📍 <span><strong>Dirección:</strong> Avenida 111 y Calle V1 Barrio La Victoria, Manta, Ecuador</span></li>
-                    <li>📞 <span><strong>Teléfonos:</strong> 0958727023 / 0992941026</span></li>
-                    <li>✉️ <span><strong>Correo:</strong> uelamoderna.manta@gmail.com</span></li>
+                <h3 style="color: #0d1b2a; font-family: 'Outfit', sans-serif; font-size: 1.6rem; margin-top: 0; margin-bottom: 15px; border-bottom: 3px solid #3a86ff; padding-bottom: 8px; display: inline-block;">
+                    Información de Contacto
+                </h3>
+                <p style="color: #4a5568; font-size: 1rem; margin-bottom: 25px;">¿Tienes dudas? Nuestro equipo administrativo está listo para atenderte.</p>
+                
+                <ul class="info-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 20px;">
+                    <li style="display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 45px; height: 45px; background: rgba(58, 134, 255, 0.1); color: #3a86ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <strong style="display: block; color: #0d1b2a; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Teléfonos</strong>
+                            <span style="color: #4a5568; font-size: 1.05rem;">0958727023 / 0992941026</span>
+                        </div>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 45px; height: 45px; background: rgba(58, 134, 255, 0.1); color: #3a86ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <strong style="display: block; color: #0d1b2a; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Correo Electrónico</strong>
+                            <a href="mailto:uelamoderna.manta@gmail.com" style="color: #4a5568; font-size: 1.05rem; text-decoration: none;">uelamoderna.manta@gmail.com</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
+            
+            <div style="margin-top: 30px; padding-top: 15px; border-top: 1px dashed #e2e8f0; color: #718096; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
+                <span>📍</span> Atendiendo de Lunes a Viernes en horario matutino.
+            </div>
         </div>
-    </section>
+
+    </div>
+</section>
 
     <section class="section-padding privacidad-section" id="privacidad">
         <div class="container">
@@ -334,7 +348,7 @@
                         <p>Los datos suministrados en nuestros formularios de admisión y plataformas digitales se utilizan con fines estrictamente académicos, administrativos y de comunicación institucional, impidiendo su transferencia a terceros sin autorización expresa.</p>
                         <p>Para conocer en detalle los derechos de acceso, rectificación, eliminación y oposición de sus datos, puede consultar el documento estatutario completo aprobado por nuestras autoridades:</p>
                         
-                        <a href="POLITICA DE DATOS PERSONALES.pdf" target="_blank" class="btn btn-secondary btn-pdf">
+                        <a href="assets/documentos/POLITICA DE DATOS PERSONALES.pdf" target="_blank" class="btn btn-secondary btn-pdf">
                             📄 Leer Política Completa (PDF)
                         </a>
                     </div>
@@ -343,22 +357,70 @@
         </div>
     </section>
 
-    <footer>
+    <footer style="background-color: #0d1b2a; color: #ffffff; padding: 60px 0 30px 0; font-family: 'Plus Jakarta Sans', sans-serif;">
         <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h4 style="margin-bottom: 5px;">Unidad Educativa Séneca</h4>
-                    <p style="color: var(--bridal-blue); opacity: 0.85;">Por siempre La Moderna • Desde 1997</p>
-                    <br>
-                    <p><a href="#privacidad" class="footer-legal-link">Protección de Datos Personales</a></p>
+            <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                
+                <div class="footer-col" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h4 style="margin: 0 0 20px 0; font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; border-left: 4px solid #3a86ff; padding-left: 10px;">U.E. Séneca</h4>
+                        <p style="color: #ffffff; opacity: 0.85; font-size: 0.95rem; line-height: 1.6; margin: 0 0 20px 0;">
+                            Por siempre La Moderna.<br>Formando bachilleres de excelencia con sólidos valores desde 1997 en la ciudad de Manta.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="margin: 0 0 12px 0; font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600;">Síguenos</h4>
+                        <div class="footer-socials" style="display: flex; gap: 20px; font-size: 1.5rem;">
+                            <a href="https://www.facebook.com/p/Unidad-Educativa-S%C3%A9neca-Por-siempre-La-Moderna-100038756816472/" target="_blank" style="color: #ffffff; opacity: 0.85; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/ue_seneca/" target="_blank" style="color: #ffffff; opacity: 0.85; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-socials">
-                    <a href="https://www.facebook.com/p/Unidad-Educativa-S%C3%A9neca-Por-siempre-La-Moderna-100038756816472/" target="_blank">Facebook</a>
-                    <a href="https://www.instagram.com/ue_seneca/" target="_blank">Instagram</a>
+
+                <div class="footer-col">
+                    <h4 style="margin: 0 0 20px 0; font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; border-left: 4px solid #3a86ff; padding-left: 10px;">Enlaces Rápidos</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; line-height: 2.2;">
+                        <li><a href="#inicio" style="color: #ffffff; opacity: 0.85; text-decoration: none; font-size: 0.95rem;">Inicio</a></li>
+                        <li><a href="#nosotros" style="color: #ffffff; opacity: 0.85; text-decoration: none; font-size: 0.95rem;">Nosotros</a></li>
+                        <li><a href="#oferta" style="color: #ffffff; opacity: 0.85; text-decoration: none; font-size: 0.95rem;">Oferta Académica</a></li>
+                        <li><a href="#admisiones" style="color: #ffffff; opacity: 0.85; text-decoration: none; font-size: 0.95rem;">Admisiones</a></li>
+                    </ul>
                 </div>
+
+                <div class="footer-col contact-map-container" style="grid-column: span 2; min-width: 300px;">
+                    <h4 style="margin: 0 0 20px 0; font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; border-left: 4px solid #3a86ff; padding-left: 10px;">Ubicación</h4>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; align-items: start;">
+                        <div style="color: #ffffff; opacity: 0.85; font-size: 0.95rem; line-height: 1.6;">
+                            <p style="margin: 0 0 10px 0; display: flex; align-items: flex-start; gap: 8px;">
+                                <span>📍</span> <strong>Dirección:</strong><br>Avenida 111 y Calle V1 Barrio La Victoria, Manta, Ecuador
+                            </p>
+                            
+                        </div>
+                        
+<div class="footer-map" style="width: 100%; height: 180px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.1);">
+    <iframe
+        src="https://www.google.com/maps?q=Unidad+Educativa+Seneca+Manta&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+                    </div>
+                </div>
+
             </div>
-            <div style="text-align: center; color: var(--bridal-blue); opacity: 0.7; font-size: 0.85rem;">
-                <p>&copy; 2026 U.E. Séneca. Todos los derechos reservados.</p>
+
+            <div style="padding-top: 25px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; color: #ffffff; opacity: 0.7; font-size: 0.85rem;">
+                <p style="margin: 0;">© 2026 U.E. Séneca. Todos los derechos reservados.</p>
+                <p style="margin: 0;"><a href="#privacidad" class="footer-legal-link" style="color: #ffffff; text-decoration: underline;">Protección de Datos Personales</a></p>
             </div>
         </div>
     </footer>
