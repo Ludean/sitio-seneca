@@ -6,111 +6,43 @@
     <title>Unidad Educativa Séneca - Manta</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/jpeg" href="assets/imagenes/logo/logo.jpg">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700%7CBarlow+Condensed" media="all">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <style>
-        /* Ajuste global para evitar desbordes laterales molestos */
-        html, body {
-            overflow-x: hidden;
-            width: 100%;
-        }
-
-        /* Comportamiento del Header para Móviles (Pantallas menores a 992px) */
-        @media (max-width: 992px) {
-            .menu-toggle {
-                display: block !important; /* Muestra el botón de hamburguesa */
-            }
-
-            .nav-menu {
-                display: none !important; /* Esconde el menú por defecto */
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: rgba(13, 27, 42, 0.98);
-                padding: 20px;
-                gap: 15px !important;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-                border-bottom: 2px solid #3a86ff;
-            }
-
-            /* Clase activa que controlará tu script.js al presionar la hamburguesa */
-            .nav-menu.active {
-                display: flex !important;
-            }
-
-            .nav-menu li {
-                width: 100%;
-                text-align: center;
-            }
-
-            .nav-menu li style {
-                margin-left: 0 !important; /* Resetea el margen del botón */
-            }
-
-            .nav-menu a {
-                display: block;
-                padding: 10px 0;
-                font-size: 1.1rem !important;
-            }
-        }
-
-        /* Ajustes de grillas y secciones colapsables en móviles */
-        @media (max-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 1fr !important;
-            }
-            .footer-col {
-                grid-column: span 1 !important;
-            }
-            .hero-text-center h1 {
-                font-size: 2rem !important;
-            }
-        }
-    </style>
 </head>
 <body>
 
     <button id="btn-back-to-top" title="Ir al inicio" onclick="scrollToTop()">▲</button>
 
-<header style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background-color: rgba(13, 27, 42, 0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15); border-bottom: 2px solid #3a86ff; font-family: 'Plus Jakarta Sans', sans-serif;">
-    <div class="container nav-container" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; max-width: 1200px; margin: 0 auto;">
-        
-        <div class="logo-area" style="display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="window.location.href='#inicio'">
-            <div class="logo-box" style="width: 45px; height: 45px; border-radius: 50%; overflow: hidden; border: 2px solid #3a86ff; box-shadow: 0 0 10px rgba(58, 134, 255, 0.3); background: #ffffff; display: flex; align-items: center; justify-content: center;">
-                <img src="assets/imagenes/logo/logo.jpg" alt="Logo U.E. Séneca" style="width: 100%; height: 100%; object-fit: cover;">
+    <header class="header-premium">
+        <div class="container nav-container">
+            <div class="logo-area" onclick="window.location.href='#inicio'">
+                <div class="logo-box">
+                    <img src="assets/imagenes/logo/logo.jpg" alt="Logo U.E. Séneca">
+                </div>
+                <span class="logo-text">
+                    U.E. <strong>Séneca</strong>
+                </span>
             </div>
-            <span class="logo-text" style="color: #ffffff; font-family: 'Outfit', sans-serif; font-size: 1.3rem; letter-spacing: 0.5px;">
-                U.E. <strong style="color: #3a86ff; font-weight: 800;">Séneca</strong>
-            </span>
-        </div>
-        
-        <nav style="display: flex; align-items: center;">
-            <button class="menu-toggle" aria-label="Abrir menú" style="background: none; border: none; color: #ffffff; font-size: 1.8rem; cursor: pointer; display: none;">☰</button>
             
-            <ul class="nav-menu" style="list-style: none; display: flex; align-items: center; gap: 20px; margin: 0; padding: 0;">
-                <li><a href="#inicio" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Inicio</a></li>
-                <li><a href="#nosotros" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Nosotros</a></li>
-                <li><a href="#oferta" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Oferta Académica</a></li>
-                <li><a href="#plantel" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Plantel Docente</a></li>
-                <li><a href="#galeria" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Galería</a></li>
-                <li><a href="#privacidad" style="color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 500; opacity: 0.8; transition: color 0.2s;" onmouseover="this.style.color='#3a86ff'" onmouseout="this.style.color='#ffffff'">Legal</a></li>
-                
-                <li style="margin-left: 10px;">
-                    <a href="#admisiones" style="background-color: #3a86ff; color: #ffffff; text-decoration: none; font-size: 0.95rem; font-weight: 600; padding: 10px 20px; border-radius: 8px; box-shadow: 0 4px 14px rgba(58, 134, 255, 0.4); transition: all 0.2s ease-in-out; display: inline-block;" 
-                       onmouseover="this.style.backgroundColor='#2563eb'; this.style.transform='translateY(-1px)';" 
-                       onmouseout="this.style.backgroundColor='#3a86ff'; this.style.transform='translateY(0)';">
-                        Admisiones 2026
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
+            <nav class="nav-wrapper">
+                <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#oferta">Oferta Académica</a></li>
+                    <li><a href="#plantel">Plantel Docente</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#privacidad">Legal</a></li>
+                    <li class="nav-btn-wrapper">
+                        <a href="#admisiones" class="btn-nav-admission">Admisiones 2026</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <section class="hero-fullscreen" id="inicio">
         <div class="hero-video-bg">
@@ -126,12 +58,13 @@
                 <span class="hero-tagline">Desde 1997 • Por siempre La Moderna</span>
                 <h1>Educamos con amor y compromiso hacia la excelencia</h1>
                 <p>Formamos estudiantes íntegros y preparados para el futuro. Contamos con una sólida formación basada en las ciencias, modernos laboratorios, docentes altamente capacitados y amplias áreas deportivas.</p>
-                <div class="hero-btns-center">
-                    <a href="https://wa.me/593958727023" class="btn btn-hero-primary" target="_blank">Agendar Visita (WhatsApp)</a>
+                <!-- <div class="hero-btns-center">
+                    <a href="https://wa.me/593958727023" class="btn btn-hero-primary" target="_blank" rel="noopener">Agendar Visita (WhatsApp)</a>
                     <a href="#admisiones" class="btn btn-hero-secondary">Requisitos</a>
-                </div>
+                </div> -->
             </div>
         </div>
+        
         <div class="hero-scroll-indicator">
             <div class="mouse">
                 <div class="wheel"></div>
@@ -139,29 +72,37 @@
         </div>
     </section>
 
-    <section class="section-padding nosotros" id="nosotros">
+    <section class="section-padding" id="nosotros">
         <div class="container">
             <div class="section-title">
                 <h2>Nuestra Identidad</h2>
             </div>
             
-            <div class="mv-grid">
-                <div class="mv-box">
-                    <h3>Misión</h3>
-                    <p>Inculcar en nuestros alumnos los valores académicos, éticos, cívicos, morales y de convivencia, que le permitan desarrollarse en un entorno cada vez más competitivo, fortaleciendo su personalidad a través de un process de enseñanza-aprendizaje dinámico.</p>
+            <div class="nosotros-custom-layout">
+                <div class="nosotros-rhetoric-bg scroll-animate fade-left">
+                    <h3 style="font-style: italic;">"Por siempre La Moderna"</h3>
+                    <p>Liderando la formación académica de la región desde 1997. Nuestro compromiso radica en templar el carácter, potenciar el intelecto y guiar con el ejemplo firme hacia un porvenir lleno de integridad y éxito continuo.</p>
                 </div>
-                <div class="mv-box">
-                    <h3>Visión</h3>
-                    <p>Entregar a la ciudad y al País en general, bachilleres debidamente capacitados académicamente, con altos valores morales, capaces de emprender una carrera universitaria con el convencimiento pleno de tener una sólida formación académica como base.</p>
+                
+                <div class="nosotros-blocks-stack">
+                    <div class="mv-box scroll-animate fade-right">
+                        <h3>Misión</h3>
+                        <p>Inculcar en nuestros alumnos los valores académicos, éticos, cívicos, morales y de convivencia, que le permitan desarrollarse en un entorno cada vez más competitivo, fortaleciendo su personalidad a través de un proceso de enseñanza-aprendizaje dinámico.</p>
+                    </div>
+                    
+                    <div class="mv-box scroll-animate fade-right">
+                        <h3>Visión</h3>
+                        <p>Entregar a la ciudad y al País en general, bachilleres debidamente capacitados académicamente, con altos valores morales, capaces de emprender una carrera universitaria con el convencimiento pleno de tener una sólida formación académica como base.</p>
+                    </div>
+                    
+                    <div class="modelo-box scroll-animate fade-right">
+                        <h3>Nuestro Modelo Educativo</h3>
+                        <p>Promueve una formación integral que combina la excelencia académica con el desarrollo de valores éticos, cívicos y humanos. A través de la tecnología como herramienta de apoyo, buscamos fortalecer el pensamiento crítico y capacitar bachilleres aptos para aportar positivamente al desarrollo de la sociedad.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="modelo-box">
-                <h3>Nuestro Modelo Educativo</h3>
-                <p>Promueve una formación integral que combina la excelencia académica con el desarrollo de valores éticos, cívicos y humanos. A través de la tecnología como herramienta de apoyo, buscamos fortalecer el pensamiento crítico y capacitar bachilleres aptos para aportar positivamente al desarrollo de la sociedad.</p>
             </div>
 
-            <h3 style="margin-bottom: 30px; font-family: 'Montserrat', sans-serif; text-align: center; font-size: 1.6rem;">Nuestra Infraestructura</h3>
+            <h3 class="infra-title-separator">Nuestra Infraestructura</h3>
             
             <div class="infra-grid">
                 <div class="infra-item">
@@ -207,46 +148,49 @@
         </div>
     </section>
 
-    <section class="section-padding" id="oferta">
-        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
-            <div class="section-title" style="width: 100%; text-align: center;">
+    <section class="section-padding oferta-section" id="oferta">
+        <div class="container">
+            <div class="section-title">
                 <h2>Oferta Académica</h2>
             </div>
             
-            <div class="infra-grid" style="display: flex; flex-wrap: wrap; justify-content: center; width: 100%; gap: 30px;"> 
-                <div class="infra-item" style="flex: 1; min-width: 280px; max-width: 350px; margin: 0;">
+            <div class="oferta-cards-grid">
+                <div class="oferta-card-item">
+                    <span class="oferta-tag">Preescolar</span>
                     <div class="card-carousel">
                         <div class="card-carousel-track">
                             <div class="card-slide" style="background-image: url('assets/imagenes/destacadas/DSC07979.JPG');"></div>
                         </div>
                     </div>
-                    <div style="padding: 15px; text-align: center;">
-                        <h4 style="margin-bottom: 10px;">Preescolar</h4>
-                        <p style="font-size: 0.95rem; color: #4a5568;">Entorno cálido centrado en la estimulación temprana y valores iniciales.</p>
+                    <div class="oferta-card-overlay">
+                        <h4>Preescolar</h4>
+                        <p>Entorno cálido centrado en la estimulación temprana y valores iniciales.</p>
                     </div>
                 </div>
 
-                <div class="infra-item" style="flex: 1; min-width: 280px; max-width: 350px; margin: 0;">
+                <div class="oferta-card-item">
+                    <span class="oferta-tag">Primaria</span>
                     <div class="card-carousel">
                         <div class="card-carousel-track">
                             <div class="card-slide" style="background-image: url('assets/imagenes/destacadas/DSC08091.JPG');"></div>
                         </div>
                     </div>
-                    <div style="padding: 15px; text-align: center;">
-                        <h4 style="margin-bottom: 10px;">Primaria</h4>
-                        <p style="font-size: 0.95rem; color: #4a5568;">Desarrollo de competencias lógicas, científicas y habilidades interpersonales.</p>
+                    <div class="oferta-card-overlay">
+                        <h4>Primaria</h4>
+                        <p>Desarrollo de competencias lógicas, científicas y habilidades interpersonales.</p>
                     </div>
                 </div>
 
-                <div class="infra-item" style="flex: 1; min-width: 280px; max-width: 350px; margin: 0;">
+                <div class="oferta-card-item">
+                    <span class="oferta-tag">Secundaria</span>
                     <div class="card-carousel">
                         <div class="card-carousel-track">
                             <div class="card-slide" style="background-image: url('assets/imagenes/destacadas/DSC08087.JPG');"></div>
                         </div>
                     </div>
-                    <div style="padding: 15px; text-align: center;">
-                        <h4 style="margin-bottom: 10px;">Secundaria</h4>
-                        <p style="font-size: 0.95rem; color: #4a5568;">Preparación rigurosa enfocada hacia la excelencia académica y la universidad.</p>
+                    <div class="oferta-card-overlay">
+                        <h4>Secundaria</h4>
+                        <p>Preparación rigurosa enfocada hacia la excelencia académica y la universidad.</p>
                     </div>
                 </div>
             </div>
@@ -258,7 +202,7 @@
             <div class="section-title">
                 <h2>Plantel Docente</h2>
             </div>
-            <p style="text-align: center; max-width: 700px; margin: -40px auto 45px auto; color: #4a5568; font-size: 1.05rem;">Conozca al equipo de profesionales comprometidos con la formación integral y académica de nuestros estudiantes.</p>
+            <p class="section-subtitle-text">Conozca al equipo de profesionales comprometidos con la formación integral y académica de nuestros estudiantes.</p>
             
             <div class="docentes-grid">
                 <div class="docente-card">
@@ -302,125 +246,109 @@
         </div>
     </section>
 
-<section class="section-padding" id="galeria">
-    <div class="container">
-        <div class="section-title">
-            <h2>Noticias y Galería</h2>
-        </div>
-        <p style="text-align: center; max-width: 600px; margin: -40px auto 40px auto; color: #4a5568; font-size: 1.05rem;">
-            Manténgase al día con las últimas novedades, eventos solemnes y reconocimientos de nuestra institución.
-        </p>
-        
-        <div class="galeria-grid">
-            <div class="galeria-item">
-                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC08015.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
+    <section class="section-padding" id="galeria">
+        <div class="container">
+            <div class="section-title">
+                <h2>Noticias y Galería</h2>
             </div>
-            <div class="galeria-item">
-                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC08071.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
-            </div>
-            <div class="galeria-item">
-                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/laboratorio/DSC07997.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
-            </div>
-            <div class="galeria-item">
-                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC07962.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
-            </div>
-            <div class="galeria-item">
-                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DJI_20260522212604_0150_D.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
-            </div>
-            <div class="galeria-item">
-                <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC05260.JPG'); background-size: cover; background-position: center; width: 100%; height: 100%;"></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="gallery-modal" class="g-modal">
-        <span class="g-close">&times;</span>
-        <img class="g-modal-content" id="img-expanded" alt="Imagen ampliada institucional">
-    </div>
-</section>
-
-<section class="section-padding admisiones-section" id="admisiones" style="background-color: #f8fafc; padding: 60px 0;">
-    <div class="container contacto-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-        
-        <div style="background: #ffffff; padding: 35px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;">
-            <h3 style="color: #0d1b2a; font-family: 'Outfit', sans-serif; font-size: 1.6rem; margin-top: 0; margin-bottom: 15px; border-bottom: 3px solid #3a86ff; padding-bottom: 8px; display: inline-block;">
-                Proceso de Admisión
-            </h3>
-            <p style="color: #4a5568; font-size: 1rem; margin-bottom: 20px;">Sigue los pasos para formar parte de nuestra comunidad educativa:</p>
+            <p class="section-subtitle-text">Manténgase al día con las últimas novedades, eventos solemnes y reconocimientos de nuestra institución.</p>
             
-            <ul class="info-list" style="list-style: none; padding: 0; margin: 0 0 25px 0; display: flex; flex-direction: column; gap: 12px;">
-                <li style="padding: 10px 14px; background: #f1f5f9; border-radius: 8px; transition: transform 0.2s;">
-                    <span><strong>Paso 1:</strong> Revisa los <a href="assets/documentos/web/ADMISIONES (REQUISITOS).pdf" target="_blank" style="color: #3a86ff; font-weight: 600; text-decoration: none;">Requisitos de Admisión (PDF) →</a></span>
-                </li>
-                <li style="padding: 10px 14px; background: #f1f5f9; border-radius: 8px; transition: transform 0.2s;">
-                    <span><strong>Paso 2:</strong> Descarga y llena el <a href="assets/documentos/web/FORMULARIO DE ADMISION.pdf" target="_blank" style="color: #3a86ff; font-weight: 600; text-decoration: none;">Formulario de Inscripción (PDF) →</a></span>
-                </li>
-                <li style="padding: 10px 14px; background: #f1f5f9; border-radius: 8px; transition: transform 0.2s;">
-                    <span><strong>Paso 3:</strong> Conozca el plan de estudios en el <a href="assets/documentos/web/LISTADO DE MATERIAS.pdf" target="_blank" style="color: #3a86ff; font-weight: 600; text-decoration: none;">Listado de Materias (PDF) →</a></span>
-                </li>
-            </ul>
-            
-            <a href="https://wa.me/593958727023" class="btn btn-primary" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background-color: #25d366; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);">
-                <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Contactar por WhatsApp
-            </a>
+            <div class="galeria-bento-grid">
+                <div class="galeria-item g-wide scroll-animate">
+                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC08015.JPG');">
+                        <span class="galeria-tag">Institucional</span>
+                    </div>
+                </div>
+                <div class="galeria-item scroll-animate">
+                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC08071.JPG');">
+                        <span class="galeria-tag">Eventos</span>
+                    </div>
+                </div>
+                <div class="galeria-item g-tall scroll-animate">
+                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/laboratorio/DSC07997.JPG');">
+                        <span class="galeria-tag">Laboratorio</span>
+                    </div>
+                </div>
+                <div class="galeria-item scroll-animate">
+                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC07962.JPG');">
+                        <span class="galeria-tag">Comunidad</span>
+                    </div>
+                </div>
+                <div class="galeria-item g-wide scroll-animate">
+                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DJI_20260522212604_0150_D.JPG');">
+                        <span class="galeria-tag">Campus</span>
+                    </div>
+                </div>
+                <div class="galeria-item scroll-animate">
+                    <div class="galeria-img-mock" style="background-image: url('assets/imagenes/destacadas/DSC05260.JPG');">
+                        <span class="galeria-tag">Cultura</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div style="background: #ffffff; padding: 35px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-                <h3 style="color: #0d1b2a; font-family: 'Outfit', sans-serif; font-size: 1.6rem; margin-top: 0; margin-bottom: 15px; border-bottom: 3px solid #3a86ff; padding-bottom: 8px; display: inline-block;">
-                    Información de Contacto
-                </h3>
-                <p style="color: #4a5568; font-size: 1rem; margin-bottom: 25px;">¿Tienes dudas? Nuestro equipo administrativo está listo para atenderte.</p>
-                
-                <ul class="info-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 20px;">
-                    <li style="display: flex; align-items: center; gap: 15px;">
-                        <div style="width: 45px; height: 45px; background: rgba(58, 134, 255, 0.1); color: #3a86ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div>
-                            <strong style="display: block; color: #0d1b2a; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Teléfonos</strong>
-                            <span style="color: #4a5568; font-size: 1.05rem;">0958727023 / 0992941026</span>
-                        </div>
-                    </li>
-                    <li style="display: flex; align-items: center; gap: 15px;">
-                        <div style="width: 45px; height: 45px; background: rgba(58, 134, 255, 0.1); color: #3a86ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div style="min-width: 0; flex: 1;">
-    <strong style="display: block; color: #0d1b2a; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">
-        Correo Electrónico
-    </strong>
-    <a href="mailto:uelamoderna.manta@gmail.com" 
-       style="color: #4a5568; font-size: 1.05rem; text-decoration: none; display: block; word-break: break-all; overflow-wrap: break-word;">
-        uelamoderna.manta@gmail.com
-    </a>
-</div>
-                    </li>
+
+        <div id="gallery-modal" class="g-modal" aria-hidden="true">
+            <span class="g-close">×</span>
+            <img class="g-modal-content" id="img-expanded" alt="Imagen ampliada institucional">
+        </div>
+    </section>
+
+    <section class="section-padding admisiones-section" id="admisiones">
+        <div class="container contacto-grid">
+            <div class="contacto-card-wrapper scroll-animate">
+                <h3 class="contacto-block-title">Proceso de Admisión</h3>
+                <p class="contacto-block-desc">Sigue los pasos para formar parte de nuestra comunidad educativa:</p>
+                <ul class="info-list">
+                    <li><span><strong>Paso 1:</strong> Revisa los <a href="assets/documentos/web/ADMISIONES (REQUISITOS).pdf" target="_blank" rel="noopener">Requisitos de Admisión (PDF) →</a></span></li>
+                    <li><span><strong>Paso 2:</strong> Descarga y llena el <a href="assets/documentos/web/FORMULARIO DE ADMISION.pdf" target="_blank" rel="noopener">Formulario de Inscripción (PDF) →</a></span></li>
+                    <li><span><strong>Paso 3:</strong> Conozca el plan de estudios en el <a href="assets/documentos/web/LISTADO DE MATERIAS.pdf" target="_blank" rel="noopener">Listado de Materias (PDF) →</a></span></li>
                 </ul>
+                <a href="https://wa.me/593958727023" class="btn-whatsapp-premium" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
             </div>
             
-            <div style="margin-top: 30px; padding-top: 15px; border-top: 1px dashed #e2e8f0; color: #718096; font-size: 0.85rem; display: flex; align-items: center; gap: 6px;">
-                <span>📍</span> Atendiendo de Lunes a Viernes en horario matutino.
+            <div class="contacto-card-wrapper split-space scroll-animate">
+                <div>
+                    <h3 class="contacto-block-title">Información de Contacto</h3>
+                    <p class="contacto-block-desc">¿Tienes dudas? Nuestro equipo administrativo está listo para atenderte.</p>
+                    <ul class="contacto-direct-list">
+                        <li>
+                            <div class="icon-shell"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <strong class="direct-label">Teléfonos</strong>
+                                <span class="direct-value">0958727023 / 0992941026</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-shell"><i class="fas fa-envelope"></i></div>
+                            <div class="direct-mail-box">
+                                <strong class="direct-label">Correo Electrónico</strong>
+                                <a href="mailto:uelamoderna.manta@gmail.com" class="direct-value email-link">uelamoderna.manta@gmail.com</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contacto-note">
+                    <span>📍</span> Atendiendo de Lunes a Viernes en horario matutino.
+                </div>
             </div>
         </div>
-
-    </div>
-</section>
+    </section>
 
     <section class="section-padding privacidad-section" id="privacidad">
         <div class="container">
             <div class="section-title">
                 <h2>Transparencia Legal</h2>
             </div>
-            <div class="datos-wrapper">
+            <div class="datos-wrapper scroll-animate">
                 <details class="datos-acordeon">
                     <summary>Política de Protección de Datos Personales</summary>
                     <div class="datos-contenido">
                         <p>En cumplimiento con las normativas vigentes de protección de datos, la <strong>Unidad Educativa Séneca</strong> garantiza la confidencialidad, el correcto uso y resguardo de toda la información personal recopilada de estudiantes, representantes legales, docentes y postulantes.</p>
                         <p>Los datos suministrados en nuestros formularios de admisión y plataformas digitales se utilizan con fines estrictamente académicos, administrativos y de comunicación institucional, impidiendo su transferencia a terceros sin autorización expresa.</p>
                         <p>Para conocer en detalle los derechos de acceso, rectificación, eliminación y oposición de sus datos, puede consultar el documento estatutario completo aprobado por nuestras autoridades:</p>
-                        
-                        <a href="assets/documentos/POLITICA DE DATOS PERSONALES.pdf" target="_blank" class="btn btn-secondary btn-pdf">
+                        <a href="assets/documentos/POLITICA DE DATOS PERSONALES.pdf" target="_blank" class="btn btn-secondary btn-pdf" rel="noopener">
                             📄 Leer Política Completa (PDF)
                         </a>
                     </div>
@@ -429,69 +357,51 @@
         </div>
     </section>
 
-    <footer style="background-color: #0d1b2a; color: #ffffff; padding: 60px 0 30px 0; font-family: 'Plus Jakarta Sans', sans-serif;">
+    <footer class="footer-premium">
         <div class="container">
-            <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                
-                <div class="footer-col" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="footer-grid">
+                <div class="footer-col split-space">
                     <div>
-                        <h4 style="margin: 0 0 20px 0; font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; border-left: 4px solid #3a86ff; padding-left: 10px;">U.E. Séneca</h4>
-                        <p style="color: #ffffff; opacity: 0.85; font-size: 0.95rem; line-height: 1.6; margin: 0 0 20px 0;">
+                        <h4 class="footer-block-title">U.E. Séneca</h4>
+                        <p class="footer-about-text">
                             Por siempre La Moderna.<br>Formando bachilleres de excelencia con sólidos valores desde 1997 en la ciudad de Manta.
                         </p>
                     </div>
                     <div>
-                        <h4 style="margin: 0 0 12px 0; font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600;">Síguenos</h4>
-                        <div class="footer-socials" style="display: flex; gap: 20px; font-size: 1.5rem;">
-                            <a href="https://www.facebook.com/p/Unidad-Educativa-S%C3%A9neca-Por-siempre-La-Moderna-100038756816472/" target="_blank" style="color: #ffffff; opacity: 0.85; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85" title="Facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="https://www.instagram.com/ue_seneca/" target="_blank" style="color: #ffffff; opacity: 0.85; text-decoration: none; transition: opacity 0.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85" title="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
+                        <h4 class="footer-sub-title">Síguenos</h4>
+                        <div class="footer-socials">
+                            <a href="https://www.facebook.com/p/Unidad-Educativa-S%C3%A9neca-Por-siempre-La-Moderna-100038756816472/" target="_blank" title="Facebook" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/ue_seneca/" target="_blank" title="Instagram" rel="noopener"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="footer-col">
-                    <h4 style="margin: 0 0 20px 0; font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; border-left: 4px solid #3a86ff; padding-left: 10px;">Enlaces Rápidos</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; line-height: 2.2;">
-                        <li><a href="#inicio" style="color: #ffffff; opacity: 0.85; text-decoration: none; font-size: 0.95rem;">Inicio</a></li>
-                        <li><a href="#nosotros" style="color: #ffffff; opacity: 0.85; text-decoration: none; font-size: 0.95rem;">Nosotros</a></li>
-                        <li><a href="#oferta" style="color: #ffffff; opacity: 0.85; text-decoration: none; font-size: 0.95rem;">Oferta Académica</a></li>
-                        <li><a href="#admisiones" style="color: #ffffff; opacity: 0.85; text-decoration: none; font-size: 0.95rem;">Admisiones</a></li>
+                    <h4 class="footer-block-title">Enlaces Rápidos</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#oferta">Oferta Académica</a></li>
+                        <li><a href="#admisiones">Admisiones</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-col contact-map-container" style="grid-column: span 2; min-width: 300px;">
-                    <h4 style="margin: 0 0 20px 0; font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; border-left: 4px solid #3a86ff; padding-left: 10px;">Ubicación</h4>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; align-items: start;">
-                        <div style="color: #ffffff; opacity: 0.85; font-size: 0.95rem; line-height: 1.6;">
-                            <p style="margin: 0 0 10px 0; display: flex; align-items: flex-start; gap: 8px;">
-                                <span>📍</span> <strong>Dirección:</strong><br>Avenida 111 y Calle V1 Barrio La Victoria, Manta, Ecuador
-                            </p>
+                <div class="footer-col contact-map-container">
+                    <h4 class="footer-block-title">Ubicación</h4>
+                    <div class="footer-map-layout">
+                        <div class="footer-address-text">
+                            <p><span>📍</span> <strong>Dirección:</strong><br>Avenida 111 y Calle V1 Barrio La Victoria, Manta, Ecuador</p>
                         </div>
-                        
-                        <div class="footer-map" style="width: 100%; height: 180px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.1);">
-                            <iframe
-                                src="https://www.google.com/maps?q=Unidad+Educativa+Seneca+Manta&output=embed"
-                                width="100%"
-                                height="100%"
-                                style="border:0;"
-                                allowfullscreen=""
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
+                        <div class="footer-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.2579624638024!2d-80.70836472648006!3d-0.9602822353536796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902be6a453690f8f%3A0xed9e4a7c580962b1!2sUE%20SENECA!5e0!3m2!1ses!2sec!4v1782802300526!5m2!1ses!2sec" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <div style="padding-top: 25px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px; color: #ffffff; opacity: 0.7; font-size: 0.85rem;">
-                <p style="margin: 0;">© 2026 U.E. Séneca. Todos los derechos reservados.</p>
-                <p style="margin: 0;"><a href="#privacidad" class="footer-legal-link" style="color: #ffffff; text-decoration: underline;">Protección de Datos Personales</a></p>
+            <div class="footer-bottom-bar">
+                <p>© 2026 U.E. Séneca. Todos los derechos reservados.</p>
+                <p><a href="#privacidad" class="footer-legal-link">Protección de Datos Personales</a></p>
             </div>
         </div>
     </footer>

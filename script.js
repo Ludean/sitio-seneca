@@ -1,164 +1,123 @@
-// ==========================================================================
-// 1. INICIALIZACIÓN AUTOMÁTICA DE CARRUSELES PREMIUM
-// ==========================================================================
-document.addEventListener("DOMContentLoaded", () => {
-    const carousels = document.querySelectorAll('.card-carousel');
+document.addEventListener('DOMContentLoaded', () => {
+    // Inicializaciones Globales Requeridas
+    initMenuMobile();
+    initCarousels();
+    initGalleryModal();
+    initScrollRevelations();
+});
+
+/* ==========================================================================
+   1. SISTEMA DE REVELACIÓN CINEMÁTICA ASIMÉTRICA INFINITA
+   ========================================================================== */
+function initScrollRevelations() {
+    // Grillas de tarjetas con lógica cíclica de 3 elementos (Izquierda - Sube - Derecha)
+    const tripleGrids = document.querySelectorAll('.oferta-cards-grid, .docentes-grid');
     
-    carousels.forEach(carousel => {
-        const track = carousel.querySelector('.card-carousel-track');
-        const slidesCount = track.children.length;
-        
-        // Solo inyectar botones si el elemento tiene más de una imagen
-        if (slidesCount > 1) {
-            carousel.setAttribute('data-index', '0');
+    tripleGrids.forEach(grid => {
+        const cards = grid.children;
+        Array.from(cards).forEach((card, index) => {
+            card.classList.add('scroll-animate');
+            const position = index % 3;
             
-            const btnPrev = document.createElement('button');
-            btnPrev.className = 'card-carousel-btn prev';
-            btnPrev.innerHTML = '‹';
-            btnPrev.onclick = () => moveCardSlide(carousel, -1);
-            
-            const btnNext = document.createElement('button');
-            btnNext.className = 'card-carousel-btn next';
-            btnNext.innerHTML = '›';
-            btnNext.onclick = () => moveCardSlide(carousel, 1);
-            
-            carousel.appendChild(btnPrev);
-            carousel.appendChild(btnNext);
+            if (position === 0) {
+                card.classList.add('fade-left');
+            } else if (position === 1) {
+                card.classList.add('fade-up');
+            } else if (position === 2) {
+                card.classList.add('fade-right');
+            }
+        });
+    });
+
+    // Grilla específica de Infraestructura (4 elementos equilibrados)
+    const infraItems = document.querySelectorAll('.infra-item');
+    infraItems.forEach((item, index) => {
+        item.classList.add('scroll-animate');
+        if (index === 0) {
+            item.classList.add('fade-left');
+        } else if (index === infraItems.length - 1) {
+            item.classList.add('fade-right');
+        } else {
+            item.classList.add('fade-up'); // Los dos bloques del centro suben ordenadamente
         }
     });
 
-    // ==========================================================================
-    // 3. FUNCIONALIDAD DEL MENÚ HAMBURGUESA EN MÓVILES
-    // ==========================================================================
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navMenu = document.querySelector(".nav-menu");
-    const navLinks = document.querySelectorAll(".nav-menu a");
-
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener("click", function() {
-            navMenu.classList.toggle("active");
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener("click", function() {
-                navMenu.classList.remove("active");
-            });
-        });
-    }
-
-    // ==========================================================================
-    // 4. ANIMACIÓN AL HACER SCROLL (Intersection Observer)
-    // ==========================================================================
-    // Apuntamos a todos los componentes que queremos elevar dinámicamente
-    const elementsToAnimate = document.querySelectorAll('.infra-item, .docente-card, .vida-card, .oferta-card, .mv-box, .modelo-box');
+    // Captura unificada de los elementos a animar bajo demanda del viewport
+    const animatedElements = document.querySelectorAll(
+        '.scroll-animate, .nosotros-rhetoric-bg, .mv-box, .modelo-box, .galeria-item, .contacto-card-wrapper, .datos-wrapper'
+    );
     
-    elementsToAnimate.forEach(el => el.classList.add('scroll-animate'));
+    if (animatedElements.length === 0) return;
 
     const observerOptions = {
         root: null,
-        rootMargin: "0px",
-        threshold: 0.12 // Se activa cuando asoma el 12% del componente
+        rootMargin: "-10px 0px -30px 0px",
+        threshold: 0.05
     };
 
-    const scrollObserver = new IntersectionObserver((entries, observer) => {
+    const intersectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                scrollObserver.unobserve(entry.target); // Evita repetir la animación
+                window.requestAnimationFrame(() => {
+                    entry.target.classList.add('active');
+                });
+            } else {
+                window.requestAnimationFrame(() => {
+                    entry.target.classList.remove('active');
+                });
             }
         });
     }, observerOptions);
 
-    elementsToAnimate.forEach(element => {
-        scrollObserver.observe(element);
-    });
-
-    // ==========================================================================
-    // 5. MODAL LIGHTBOX PARA LA GALERÍA
-    // ==========================================================================
-    const modal = document.getElementById("gallery-modal");
-    const modalImg = document.getElementById("img-expanded");
-    const closeBtn = document.querySelector(".g-close");
-    const galleryItems = document.querySelectorAll(".galeria-img-mock");
-
-    if (modal && modalImg && galleryItems.length > 0) {
-        galleryItems.forEach(item => {
-            // Estilo visual de lupa para indicar interactividad
-            item.style.cursor = "zoom-in";
-
-            item.addEventListener("click", function() {
-                // Extrae la URL limpia del background-image (inline o heredado de CSS)
-                let bgImg = window.getComputedStyle(this).backgroundImage;
-                if (bgImg && bgImg !== 'none') {
-                    let src = bgImg.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
-                    
-                    modal.style.display = "block";
-                    modalImg.src = src;
-                    document.body.style.overflow = "hidden"; // Bloquea el scroll del sitio
-                }
-            });
-        });
-
-        // Eventos de cierre
-        if (closeBtn) {
-            closeBtn.addEventListener("click", cerrarModal);
-        }
-
-        modal.addEventListener("click", function(e) {
-            if (e.target === modal) {
-                cerrarModal();
-            }
-        });
-
-        document.addEventListener("keydown", function(e) {
-            if (e.key === "Escape" && modal.style.display === "block") {
-                cerrarModal();
-            }
-        });
-    }
-
-    function cerrarModal() {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto"; // Devuelve el scroll al body
-    }
-});
-
-// Función Maestra para desplazar los Carruseles internos
-function moveCardSlide(carousel, direction) {
-    const track = carousel.querySelector('.card-carousel-track');
-    const slidesCount = track.children.length;
-    
-    let currentIndex = parseInt(carousel.getAttribute('data-index')) || 0;
-    
-    currentIndex += direction;
-    if (currentIndex < 0) {
-        currentIndex = slidesCount - 1;
-    } else if (currentIndex >= slidesCount) {
-        currentIndex = 0;
-    }
-    
-    carousel.setAttribute('data-index', currentIndex);
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    animatedElements.forEach(element => intersectionObserver.observe(element));
 }
 
-// ==========================================================================
-// 2. CONTROL DEL BOTÓN "IR ARRIBA" (SCROLL TO TOP) Y MENÚ ACTIVO
-// ==========================================================================
-const topBtn = document.getElementById("btn-back-to-top");
+/* ==========================================================================
+   2. CONTROL DE NAVEGACIÓN Y MENÚ MÓVIL
+   ========================================================================== */
+function initMenuMobile() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
 
-window.onscroll = function() {
-    scrollFunction();
-    trackActiveMenu();
-};
+    if (!menuToggle || !navMenu) return;
 
-function scrollFunction() {
-    if (topBtn) {
-        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-            topBtn.classList.add("show");
+    menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        navMenu.classList.toggle('active');
+        menuToggle.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('active');
+            menuToggle.textContent = '☰';
+        });
+    });
+
+    // Control del botón Volver Arriba Y la clase Scrolled del Header
+    const btnBackToTop = document.getElementById('btn-back-to-top');
+    const header = document.querySelector('.header-premium'); // Seleccionamos el header
+
+    window.addEventListener('scroll', () => {
+        // 1. Lógica para el botón "Volver Arriba"
+        if (window.scrollY > 400) {
+            btnBackToTop.style.display = 'flex'; // Cambié a flex para que respete tu CSS
         } else {
-            topBtn.classList.remove("show");
+            btnBackToTop.style.display = 'none';
         }
-    }
+
+        // 2. Lógica para la clase "scrolled" del Header (NUEVO)
+        if (header) {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+    });
 }
 
 function scrollToTop() {
@@ -168,22 +127,55 @@ function scrollToTop() {
     });
 }
 
-function trackActiveMenu() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-menu a');
+/* ==========================================================================
+   3. AUTOMATIZACIÓN DE CARRUSELES INTERNOS
+   ========================================================================== */
+function initCarousels() {
+    const tracks = document.querySelectorAll('.card-carousel-track');
     
-    let currentSectionId = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= (sectionTop - 220)) {
-            currentSectionId = section.getAttribute('id');
-        }
+    tracks.forEach(track => {
+        const slides = track.querySelectorAll('.card-slide');
+        if (slides.length <= 1) return;
+
+        let currentIndex = 0;
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }, 3500); // Rotación fluida cada 3.5 segundos
+    });
+}
+
+/* ==========================================================================
+   4. MODAL EXPANDIBLE DE GALERÍA DE IMÁGENES
+   ========================================================================== */
+function initGalleryModal() {
+    const modal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('img-expanded');
+    const closeBtn = document.querySelector('.g-close');
+    const bentoImages = document.querySelectorAll('.galeria-img-mock');
+
+    if (!modal || !modalImg) return;
+
+    bentoImages.forEach(imgBox => {
+        imgBox.addEventListener('click', () => {
+            const bgUrl = window.getComputedStyle(imgBox).backgroundImage;
+            const cleanUrl = bgUrl.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+            
+            modal.style.display = 'flex';
+            modal.setAttribute('aria-hidden', 'false');
+            modalImg.src = cleanUrl;
+            document.body.style.overflow = 'hidden'; // Detiene scroll de fondo
+        });
     });
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSectionId}`) {
-            link.classList.add('active');
-        }
+    const closeModal = () => {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
     });
 }
