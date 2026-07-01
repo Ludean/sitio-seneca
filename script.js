@@ -56,6 +56,11 @@ function initScrollRevelations() {
     };
 
     const intersectionObserver = new IntersectionObserver((entries) => {
+        // Añadir retardo a los elementos de la galería para un efecto "cascada"
+        const items = document.querySelectorAll('.galeria-item');
+        items.forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+        });
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 window.requestAnimationFrame(() => {
